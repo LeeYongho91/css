@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+/* Default CSS  */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.parent {
+    border: 5px solid #000;
+    height: 500px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.child {
+    background-color: royalblue;
+    width: 200px;
+    color: #fff;
+    /* height: 100px; */
+    margin: 5px;
+}
+
+/* 자식요소에 높이가 없고 부모요소에 align-items 속성이 있을때
+    stretch 요소를 주면 부모요소 높이만큼 된다.
+*/
