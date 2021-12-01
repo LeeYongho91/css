@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="yellowgreen">
+    <div class="royalblue">
+        <div class="crimson">
+            <div class="gray"></div>
+            <div class="gray"></div>
+            <div class="gray"></div>
+        </div>
+    </div>
+</div>
+    
+
+</body>
+
+
+</html>
+
+
+<script>
+    // 조합구하기 중요 
+
+    function solution(n, arr, m) {
+        let answer = 0;
+
+        function DFS(L, s, sum) {
+
+            if (L === n) {
+                if (sum % m === 0) answer++;
+            } else {
+                for (let i = s; i < arr.length; i++) {
+                    DFS(L + 1, i + 1, sum + arr[i]);
+                }
+            }
+        }
+
+        DFS(0, 0, 0);
+
+        return answer;
+    }
+    console.log(solution(3, [2, 4, 5, 8, 12], 6));
+</script>
