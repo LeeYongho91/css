@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+/* Default CSS  */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    background-color: #eee;
+    height: 100vh;
+}
+
+/* Reset CSS */
+a {
+    text-decoration: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
+
+.container {}
+
+nav {
+    flex-basis: 250px;
+    background-color: cornsilk;
+}
+
+main {
+    flex: 4;
+}
+
+.inner {
+    display: flex;
+}
+
+header {
+    background-color: royalblue;
+    height: 150px;
+    text-align: center;
+    line-height: 150px;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 300px);
+}
+
+
+article {
+    flex: 4;
+}
+
+aside {
+    flex: 1;
+    background-color: wheat;
+}
+
+footer {
+    background-color: royalblue;
+    height: 150px;
+    text-align: center;
+    line-height: 150px;
+}
+
+nav,
+article,
+aside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
