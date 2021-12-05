@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="./lodash.js"></script>
 
 </head>
 
@@ -30,22 +29,46 @@
 </html>
 <script>
 
+function solution(arr) {
+    let answer = 0;
+    let posX = [-1,0,1,0];
+    let posY = [0,1,0,-1];
 
 
-        function solution(s){
-                let answer = s.filter((v,i) => {
-                    return s.indexOf(v) === i;
-                });
-                      
-                return answer;
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+            let bool = true;
+
+            for (let k = 0; k < 4; k++) {
+                let nx = i + posX[k];
+                let ny = j + posY[k];
+
+                if(nx >= 0 && nx < arr.length && ny >= 0 && ny < arr.length) {
+                    if(arr[i][j] <= arr[nx][ny]) {
+                        bool = false;
+                        break;
+                    }
+                }
+                
             }
 
-            console.log(solution(['good', 'time', 'good', 'time', 'stu']))
-                 
-            let example = [{ id: 123 }, { id: 456 }, { id: 123 }];
-            _.uniqBy(example, "id");
-            console.log(example)
+            if(bool) answer++;
+           
+        }
+                    
+    }
+  
+    
+    return answer;
 
+}
+
+
+console.log(solution([[5,3,7,2,3],
+                     [3,7,1,6,1],
+                     [7,2,5,3,4],
+                     [4,3,6,4,1],
+                     [8,7,3,5,2]]))
 
 
 </script>
