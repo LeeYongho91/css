@@ -29,46 +29,41 @@
 </html>
 <script>
 
-function solution(arr) {
-    let answer = 0;
-    let posX = [-1,0,1,0];
-    let posY = [0,1,0,-1];
 
 
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr.length; j++) {
-            let bool = true;
-
-            for (let k = 0; k < 4; k++) {
-                let nx = i + posX[k];
-                let ny = j + posY[k];
-
-                if(nx >= 0 && nx < arr.length && ny >= 0 && ny < arr.length) {
-                    if(arr[i][j] <= arr[nx][ny]) {
-                        bool = false;
+function solution(n,arr) {
+      let answer = 0;
+      let max = Number.MIN_SAFE_INTEGER;
+      let sum = 0;
+    
+      for (let i = 0; i < arr.length; i++) {
+            let cnt = 1;
+            let price = (arr[i][0] / 2) * arr[i][1]; 
+            sum += price;
+            for (let j = 0; j < arr.length; j++) {
+                if(i !== j) {
+                    sum += arr[j][0] * arr[j][1];
+                    if(sum >= n) {
                         break;
                     }
+                    cnt++;
+                    
                 }
                 
             }
 
-            if(bool) answer++;
-           
-        }
-                    
-    }
-  
-    
-    return answer;
+            answer = Math.max(answer, cnt);
+      }
 
+
+    return answer;
 }
 
-
-console.log(solution([[5,3,7,2,3],
-                     [3,7,1,6,1],
-                     [7,2,5,3,4],
-                     [4,3,6,4,1],
-                     [8,7,3,5,2]]))
+console.log(solution(28,[[6,6],
+                      [2,2],
+                      [4,3],
+                      [4,5],
+                      [10,3]]))
 
 
 </script>
