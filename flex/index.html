@@ -29,22 +29,63 @@
 </html>
 <script>
 
-function solution(t,s) {
+// function solution(arr) {
     
-    let answer = 'YES';
-    let queue = [...t];
+//     let answer = arr;
 
-    for(let x of s) {
-        if(queue.indexOf(x) !== -1) {
-            if(queue.shift() !== x) return 'NO';
+//     // for (let i = 0; i < arr.length; i++) {
+//     //     let idx = i;
+
+//     //     for (let j = i+1; j < arr.length; j++) {
+//     //         if(arr[idx] > arr[j]) idx = j;
+//     //     }
+
+//     //     [arr[i], arr[idx]] = [arr[idx], arr[i]];
+        
+//     // }
+
+//     // for (let i = 0; i < arr.length-1; i++) {
+//     //     for (let j = 0; j < arr.length-1; j++) {
+//     //         if(arr[j] > arr[j+1]) {
+//     //             [arr[j+1], arr[j]] = [arr[j], arr[j+1]];
+//     //         }
+//     //     }
+//     // }
+
+//     for (let i = 0; i < arr.length-1; i++) {
+//         for (let j = 0; j < arr.length-1; j++) {
+//             if(arr[j] > 0 && arr[j+1] < 0) {
+//                 [arr[j+1], arr[j]] = [arr[j], arr[j+1]];
+//             }
+//         }
+//     }
+   
+
+//     return answer;
+// }
+
+    function solution(arr) {
+
+        let answer = 0;
+        let et = 0;
+
+        arr.sort((a,b) => {
+            if(a[1] === b[1]) return a[0] - b[0];
+            else return a[1] - b[1];
+        })
+
+        for (let i = 0; i < arr.length; i++) {
+            if(et <= arr[i][0]) {
+                et = arr[i][1];
+                answer++;
+            }
         }
+        return answer;
     }
     
-    if(queue.length > 0) return 'NO';
 
-    return answer;
-}
 
-console.log(solution('CBA','CBDAGE'));
+
+console.log(solution([[1,4],[2,3],[3,5],[4,6],[5,7]]));
 </script>
 
