@@ -64,28 +64,46 @@
 //     return answer;
 // }
 
-    function solution(arr) {
 
-        let answer = 0;
-        let et = 0;
+    function count(dist, arr) {
+        let cnt = 1;
+        let ep = arr[0];
 
-        arr.sort((a,b) => {
-            if(a[1] === b[1]) return a[0] - b[0];
-            else return a[1] - b[1];
-        })
-
-        for (let i = 0; i < arr.length; i++) {
-            if(et <= arr[i][0]) {
-                et = arr[i][1];
-                answer++;
+        for (let i = 1; i < arr.length; i++) {
+            if(arr[i] - ep >= dist) {
+                cnt++;
+                ep = arr[i];
             }
         }
+        return cnt;
+    }
+    
+    
+    function solution(n, arr) {
+
+        let answer = 0;
+
+        let lt = 0;
+        let rt = arr[arr.length-1];
+
+        while(lt<=rt) {
+            let mid = parseInt((lt+rt)/2);
+            if(count(mid,arr) >= n) {
+                answer = mid;
+                lt = mid + 1;
+            }
+            else {
+                rt = mid - 1;
+            }
+        }
+
+        
         return answer;
     }
+
     
 
 
-
-console.log(solution([[1,4],[2,3],[3,5],[4,6],[5,7]]));
+console.log(solution(3,[1,2,4,8,9]));
 </script>
 
