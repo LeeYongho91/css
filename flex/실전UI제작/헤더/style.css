@@ -1,0 +1,152 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+/* Default CSS  */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    background-color: #eee;
+    height: 100vh;
+    color: #222;
+}
+
+/* Reset CSS */
+a { text-decoration: none; color: #222}
+button { cursor: pointer; outline: none; }
+h1,h2,h3,h4,h5,h6 { margin: 0; font-weight: normal; }
+
+header {
+    background-color: #0984e3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+nav {
+    width: 1280px;
+    display: flex;
+    justify-content: space-between;
+}
+.logo {}
+.logo img {
+    filter: invert();
+}
+.gnb {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+.gnb li {}
+.gnb li a {
+    color: white;
+    margin: 10px;
+}
+.sns {
+    align-items: center;
+}
+.sns a {
+    color: white;
+    margin: 5px;
+}  
+
+.gnb li a:hover,
+.sns a:hover {
+    color: #000;
+}
+
+.trigger {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    header {
+        height: auto;
+    }
+
+    nav {
+        width: 100%;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .logo {
+        padding: 10px;
+    }
+
+    .gnb {
+        flex-direction: column;
+        text-align: center;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+ 
+
+    .gnb li a {
+        display: block;
+        padding: 8px;
+        margin: 0;
+    }
+
+    .sns {
+        background-color: #257ed6;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .sns a {
+        color: #222;
+    }
+
+    .gnb.active,
+    .sns.active {
+      display: block;
+    }
+
+    .gnb,
+    .sns {
+        display: none;
+    }
+
+    .trigger {
+        width: 25px;
+        height: 15px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        display: block;
+    }
+
+    .trigger span {
+        background-color: white;
+        height: 1px;
+        position: absolute;
+        width: 100%;
+        transition: 0.3s;
+    }
+
+    .trigger span:nth-child(1) {
+        top: 0;
+    }
+
+    .trigger span:nth-child(2) {
+        top: 50%;
+    }
+
+    .trigger span:nth-child(3) {
+        top: 100%;
+    }
+
+    .trigger.active span:nth-child(1) {
+        top: 50%;
+        transform: rotate(45deg);
+    }
+
+    .trigger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .trigger.active span:nth-child(3) {
+        top: 50%;
+        transform: rotate(-45deg);
+    }
+}

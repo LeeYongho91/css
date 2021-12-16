@@ -1,0 +1,85 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+/* Default CSS  */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    background-color: white;
+    height: 100vh;
+}
+
+/* Reset Css */
+a { text-decoration: none; color: black;}
+button { cursor: pointer; outline: none; }
+h1,h2,h3,h4,h5,h6 { margin: 0; font-weight: normal; }
+input, textarea, select { outline: none; }
+button, input, textarea, select { font-family: 'Noto Sans KR', sans-serif; }
+
+section {
+    width: 950px;
+    margin: auto;
+}
+.section-header {}
+.gnb {
+    padding: 30px 0;
+    text-align: right;
+}
+.gnb a {
+    margin: 15px;
+    position: relative;
+    padding-bottom: 8px;
+
+}
+
+.gnb a:last-child {
+    margin-right: 0;
+}
+
+.gnb a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    transition: 0.3s;
+}
+
+.gnb a:hover:after {
+    width: 100%;
+}
+
+.search-box {
+    display: flex;
+    justify-content: space-between;
+}
+.search-box input {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    font-size: 18px;
+    padding: 5px;
+    background: url(../../image/search.png) no-repeat center right ;
+    background-size: 22px;
+    width: 300px;
+}
+.search-box button {
+    border: none;
+    background-color: crimson;
+    color: #fff;
+    padding: 13px 60px;
+    border-radius: 6px;
+    font-size: 18px;
+    box-shadow: 5px 5px 20px black;
+    transition: 0.3s;
+}
+
+.search-box input:focus::placeholder {
+    visibility: hidden;
+}
+
+.search-box button:hover {
+    background-color: #000;
+}
