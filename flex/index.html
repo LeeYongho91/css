@@ -6,21 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 </head>
 
 <body>
 
-<div class="yellowgreen">
-    <div class="royalblue">
-        <div class="crimson">
-               <div class="gray"></div>
-                 <div class="gray"></div>
-            <div class="gray"></div>
-        </div>
+<header>
+<nav>
+    <div class="logo">
+        <a href="#none"><img src="./image//logo2.png" alt=""></a>
     </div>
-</div>
+        <ul class="gnb">
+            <li><a href="#none">Home</a></li>
+            <li><a href="#none">New</a></li>
+            <li><a href="#none">Profile</a></li>
+            <li><a href="#none">Shop</a></li>
+            <li><a href="#none">Etc</a></li>
+        </ul>
+  
+    <div class="sns">
+        <a href="#none"><i class="fab fa-facebook-f"></i></a>
+        <a href="#none"> <i class="fab fa-twitter"></i></a>
+        <a href="#none"><i class="fab fa-google"></i></a>
+    </div>
+
+    <div class="trigger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</nav>
+</header>
     
 
 </body>
@@ -28,6 +48,12 @@
 
 </html>
 <script>
+
+    $(`.trigger`).click(function() {
+        $(this).toggleClass('active');
+        $(`.gnb, .sns`).toggleClass('active');
+    })
+
 
 // function solution(arr) {
     
@@ -65,42 +91,28 @@
 // }
 
 
-    function count(dist, arr) {
-        let cnt = 1;
-        let ep = arr[0];
+function solution(arr, n) {
+    let answer = Number.MAX_SAFE_INTEGER;
 
-        for (let i = 1; i < arr.length; i++) {
-            if(arr[i] - ep >= dist) {
-                cnt++;
-                ep = arr[i];
+    function DFS(L, sum) {
+        if(sum > n) return;
+        if(L >= answer) return;
+        if(sum === n) {
+                answer = Math.min(answer, L);
+        }
+        else {
+            for (let i = 0; i < arr.length; i++) {
+                DFS(L+1, sum+arr[i]);
             }
         }
-        return cnt;
-    }
-    
-    
-    function solution(n, arr) {
-
-        let answer = 0;
-
-        let lt = 0;
-        let rt = arr[arr.length-1];
-
-        while(lt<=rt) {
-            let mid = parseInt((lt+rt)/2);
-            if(count(mid,arr) >= n) {
-                answer = mid;
-                lt = mid + 1;
-            }
-            else {
-                rt = mid - 1;
-            }
-        }
-
-        
-        return answer;
     }
 
+    DFS(0,0);
+
+    return answer;
+}
+
+console.log(solution([1,2,5], 15))
     
 
 

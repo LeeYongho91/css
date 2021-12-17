@@ -1,0 +1,125 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+/* Fontawesome 4.7 */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+/* Default CSS  */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    background-color: white;
+    height: 100vh;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+/* Reset Css */
+a { text-decoration: none; color: black;}
+button { cursor: pointer; outline: none; }
+h1,h2,h3,h4,h5,h6 { margin: 0; font-weight: normal; }
+input, textarea, select { outline: none; }
+button, input, textarea, select { font-family: 'Noto Sans KR', sans-serif; }
+
+
+section {
+    width: 1000px;
+    margin: auto;
+    display: flex;
+}
+
+.post {
+    display: flex;
+}
+
+.post:nth-child(odd) {
+    flex-direction: column;
+}
+
+.post:nth-child(even) {
+    flex-direction: column-reverse;
+}
+
+.image {
+    width: 250px;
+    overflow: hidden;
+}
+
+.image img {
+    width: 100%;
+    border: 1px solid #eee;
+    display: block;
+    transition: 0.3s;
+}
+
+.image img:hover {
+    transform: scale(1.05);
+}
+.desc {
+    background-color: #1dd1a1;
+    color: white;
+    text-align: center;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.desc h2 {}
+.desc p {
+    padding: 20px;
+}
+
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    section {
+        width: 100%;
+        padding: 30px;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+    }
+
+    .post {
+        flex-direction: row !important;
+    }
+
+    /* .post:nth-child(odd) {
+        flex-direction: row;
+    }
+
+    .post:nth-child(even) {
+        flex-direction: row;
+    } */
+
+    .image,
+    .desc {
+        flex: 1;
+        height: 100%;
+    }
+
+    .post:nth-child(even) {
+        flex-direction: row-reverse !important;
+    }
+    
+}
+
+@media (max-width: 767px) {
+    section {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+    }
+
+    .post {
+        width: 100%; 
+    }
+
+    .image {
+        width: 100%;
+    }
+
+    .post:nth-child(even) {
+        flex-direction: column;
+    }
+}

@@ -64,6 +64,7 @@ section {
     background: url(../../image/search.png) no-repeat center right ;
     background-size: 22px;
     width: 300px;
+    box-sizing: border-box;
 }
 .search-box button {
     border: none;
@@ -82,4 +83,64 @@ section {
 
 .search-box button:hover {
     background-color: #000;
+}
+
+/* Items */
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+.item {
+    width: 310px;
+    height: 200px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+.item img {
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    section {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .gnb {
+        text-align: center;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box input {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .item {
+        width: 100%;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    section {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .item {
+        width: 49%;
+        height: 250px;
+        margin-bottom: 2px;
+    }
+
+    
 }
