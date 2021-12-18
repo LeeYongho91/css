@@ -21,3 +21,78 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-weight: normal; }
 input, textarea, select { outline: none; }
 button, input, textarea, select { font-family: 'Noto Sans KR', sans-serif; }
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    margin: 10px;
+    position: relative;
+    width: 300px;
+    height: 400px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.content {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #fff;
+    padding-top: 180px;
+    transition: 0.5s;
+    text-align: center;
+}
+
+.card:nth-child(1) .content {
+    background: linear-gradient(to top, crimson, transparent);
+}
+
+.card:nth-child(2) .content {
+    background: linear-gradient(to top, dodgerblue, transparent);
+
+}
+
+.card:nth-child(3) .content {
+    background: linear-gradient(to top, yellowgreen, transparent);
+}
+
+.content h2 {
+    font-size: 30px;
+}
+
+.content h2 span {
+    display: block;
+    font-size: 14px;
+    color: gold;
+    margin-top: 10px;
+}
+
+.sns a {
+    color: #fff;
+    border: 1px solid #fff;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    font-size: 13px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.card:hover .content {
+    top: 0;
+}
+
+.card:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.21);
+}
+
