@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:100;300;400;500;700;900&display=swap');
+/* Fontawesome 4.7 */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+/* Default CSS  */
+body {
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    margin: 0;
+    font-size: 15px;
+    color: #222;
+    line-height: #222;
+    line-height: 1.5em;
+    font-weight: 300;
+}
+
+/* font-weight : normal 400 */
+/* font-weight : bold 600 */
+
+
+
+/* Reset CSS */
+a { text-decoration: none; color: black;}
+button { cursor: pointer; outline: none; }
+h1,h2,h3,h4,h5,h6 { margin: 0; font-weight: 500; }
+input, textarea, select { outline: none; }
+button, input, textarea, select { font-family: 'Montserrat', sans-serif; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+/* Common CSS */
+.inner {
+    width: 1300px;
+    margin: auto;
+}
+
+
+/* ---------------------------Header---------------------------- */
+
+header {
+    position: fixed;
+    width: 100%;
+}
+
+
+.banner {
+    background-color: #000;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+.lnb {
+    width: 1300px;
+    margin: auto;
+    text-align: right;
+    /* display: flex;
+    justify-content: flex-end; */
+}
+.lnb a {
+    color: #ddd;
+    margin: 10px;
+}
+
+.lnb a:last-child {
+    margin-right: 0;
+}
+
+.lnb a em {
+    color: #bbb;
+}
+
+nav {
+    width: 1300px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.logo {}
+.gnb {
+    display: flex;
+}
+.gnb li {}
+.gnb li a {
+    margin: 15px;
+    color: #fff;
+}
+
+.gnb li a:hover {
+    color: #ddd;
+}
+
+
+
+.gnb li a:last-child {
+    margin-right: 0;
+}
+
+/* --------------------------------Intro------------------------------- */
+.intro {
+    height: 100vh;
+    background: url(../images/intro.jpg) no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.heading {
+    color: #fff;
+    text-align: center;
+}
+
+.heading h1 {
+    font-size: 70px;
+    margin-bottom: 40px;
+}
+
+.heading p {
+    font-size: 22px;
+    line-height: 1.5em;
+}
+
+/* ------------------------------------about----------------------------- */
+
+.about-content {
+    display: flex;
+    padding: 150px 0;
+}
+
+.about-content div {
+    padding: 30px;
+}
+
+.desc {
+    text-align: center;
+    flex: 3;
+}
+.desc h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.desc p {
+    font-size: 16px;
+    line-height: 1.7em;
+}
+.desc a {
+    color: #c25a3a;
+    font-weight: bold;
+}
+
+.desc a:hover {
+    text-decoration: underline;
+}
+
+
+.photo {
+    flex: 2;
+}
+.photo img {
+    width: 100%;
+    border-radius: 40% 60% 65% 35% / 40% 45% 65% 60%;
+}
+
+
+
+
+
+

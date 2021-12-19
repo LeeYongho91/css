@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <div class="banner">
+            <div class="lnb">
+                <a href="#none"><em>for</em> member</a>
+                <a href="#none"><em>for</em> clients</a>
+                <a href="#none"><em>for</em> inquire</a>
+            </div>
+        </div>
+        <nav>
+            <div class="logo">
+                <a href="#none"><img src="../images/logo.png" alt=""></a>
+            </div>
+            <ul class="gnb">
+                <li><a href="#none">HOME</a></li>
+                <li><a href="#none">ABOUT</a></li>
+                <li><a href="#none">RANKING</a></li>
+                <li><a href="#none">TESTIMONIAL</a></li>
+                <li><a href="#none">BLOG</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="intro">
+        <div class="inner">
+            <div class="heading">
+                <h1>The World’s Best Cities</h1>
+                <p>
+                    It’s not just about good weather or grea    t food and nightlife. Unlike other best-of lists, Resonance’s annual ranking also considers a city’s diversity.
+                </p>
+            </div>
+        </div>
+    </main>
+    <section class="about">
+        <div class="inner">
+            <div class="about-content">
+                <div class="desc">
+                    <h2>About Best Cities in the world</h2>
+                    <p>
+                        Factors including its highly rated nightlife landed Madrid, Spain, 12th on this list of world’s best cities. It’s not just about good weather or great food and nightlife. Unlike other best-of lists, Resonance’s annual ranking also considers a city’s diversity and, yes, the number of Instagram hashtags shared online to give a comprehensive view of what it’s like to visit and live in these places.
+                        <br><br>
+
+                        To figure out where you should travel to next, there are plenty of lists out there ranking the world’s best cities. Some use reader polls to determine which place lands at the top, while others base rankings on data like its livability or how easy it is to bike there.
+                        <br><br>
+                        <a href="#none">Visit the place information</a>
+                    </p>
+                </div>
+                <div class="photo">
+                    <img src="../images/about-img-01.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="lanking">
+        <div class="inner">
+            
+        </div>
+    </section>
+    <section class="testimonial">
+        <div class="inner">
+            
+        </div>
+    </section>
+    <section class="callaction">
+        <div class="inner">
+            
+        </div>
+    </section>
+    <section class="blog">
+        <div class="inner">
+            
+        </div>
+    </section>
+    <section class="festival">
+        <div class="inner">
+            
+        </div>
+    </section>
+    <footer>
+        <div class="inner">
+            
+        </div>
+    </footer>
+</div>
+
+<!-- 1280px ~ 1560px
+.inner --- width:1300px margin auto
+-->
+
+</body>
+
+
+</html>
+<script>
+
+    $(`.trigger`).click(function() {
+        $(this).toggleClass('active');
+        $(`.gnb, .sns`).toggleClass('active');
+
+    });
+
+
+// function solution(arr) {
+    
+//     let answer = arr;
+
+//     // for (let i = 0; i < arr.length; i++) {
+//     //     let idx = i;
+
+//     //     for (let j = i+1; j < arr.length; j++) {
+//     //         if(arr[idx] > arr[j]) idx = j;
+//     //     }
+
+//     //     [arr[i], arr[idx]] = [arr[idx], arr[i]];
+        
+//     // }
+
+//     // for (let i = 0; i < arr.length-1; i++) {
+//     //     for (let j = 0; j < arr.length-1; j++) {
+//     //         if(arr[j] > arr[j+1]) {
+//     //             [arr[j+1], arr[j]] = [arr[j], arr[j+1]];
+//     //         }
+//     //     }
+//     // }
+
+//     for (let i = 0; i < arr.length-1; i++) {
+//         for (let j = 0; j < arr.length-1; j++) {
+//             if(arr[j] > 0 && arr[j+1] < 0) {
+//                 [arr[j+1], arr[j]] = [arr[j], arr[j+1]];
+//             }
+//         }
+//     }
+   
+
+//     return answer;
+// }
+
+
+function solution(n,f) {
+    let answer;
+    let flag = 0;
+    let dy = Array.from(Array(n), ()=>Array(n).fill(0));
+    let ch = Array.from({length:n+1}, () => 0);
+    let p = Array.from({length:n}, () => 0);
+    let b = Array.from({length:n}, () => 0);
+
+    function combi(n, r) {
+        if(dy[n][r]>0) return dy[n][r];
+        if(n===r || r===0) return 1;
+        else return dy[n][r] = combi(n-1,r-1)+combi(n-1,r);
+    }
+
+    function DFS(L,sum) {
+        if(flag) return;
+        if(L === n && sum === f) {
+            answer = p.slice();
+            flag = 1;
+        }
+        else {
+            for (let i = 1; i <= n; i++) {
+                if(ch[i] === 0) {
+                    ch[i] = 1;
+                    p[L] = i;
+                    DFS(L+1, sum+(p[L] * b[L]));
+                    ch[i] = 0;
+                }              
+            }
+        }
+    }
+
+    for (let i = 0; i < n; i++) {
+        b[i] = combi(n-1, i);
+    }
+
+    
+    DFS(0,0)
+
+    return answer;
+}
+
+console.log(solution(4,16))
+    
+</script>
+
