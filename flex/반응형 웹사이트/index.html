@@ -65,19 +65,68 @@
             </div>
         </div>
     </section>
-    <section class="lanking">
+    <section class="ranking">
         <div class="inner">
             
         </div>
     </section>
     <section class="testimonial">
         <div class="inner">
-            
+            <div class="ranking-content">
+                <h2>The World’s 25 Best Cities of 2020</h2>
+                <div class="items">
+                    <div class="item">
+                        <div class="up-image">
+                            <img src="../images/best-city-01.jpg" alt="">
+                        </div>
+                        <div class="down-desc">
+                            <span class="badge">Must go</span>
+                            <h3>London, England</h3>
+                            <p>
+                                London’s main sights might date back millennia, but the capital’s shops, bars, hotels, and restaurants emerge and evolve on an almost weekly basis.
+                            </p>
+                            <a href="#none" class="btn-explore">Explore
+                                <img src="../images/icon-arrow.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="up-image">
+                            <img src="../images/best-city-02.jpg" alt="">
+                        </div>
+                        <div class="down-desc">
+                            <span class="badge good">Good to go</span>
+                            <h3>New York City, United States</h3>
+                            <p>
+                                New York’s performing arts scene—both on Broadway and off—is beloved by visitors and locals alike, so it’s no surprise that the Big Apple took the number one spot.
+                            </p>
+                            <a href="#none" class="btn-explore">Explore <img src="../images/icon-arrow.png" alt=""></a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="up-image">
+                            <img src="../images/best-city-03.jpg" alt="">
+                        </div>
+                        <div class="down-desc">
+                            <span class="badge good">Good to go</span>
+                            <h3>Paris, France</h3>
+                            <p>
+                                The Notre Dame fire was a devastating reminder of how well-loved Paris is by travelers worldwide, and as the capital gears up for the 2024 Olympics
+                            </p>
+                            <a href="#none" class="btn-explore">Explore <img src="../images/icon-arrow.png" alt=""></a>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
         </div>
     </section>
     <section class="callaction">
-        <div class="inner">
-            
+        <div class="callaction-heading">
+            <h2>The Most Simple & <b>Powerful Way</b> <br>to book <b>your trip</b></h2>
+            <a href="#none">GET EARLY ACCESS</a>
         </div>
     </section>
     <section class="blog">
@@ -86,13 +135,38 @@
         </div>
     </section>
     <section class="festival">
-        <div class="inner">
-            
+        <div class="festival-heading">
+            <h3><span>SEE ALL FESTIVALS</span> for the Best Trip Place</h3>
+            <div class="btns">
+                <a href="#none">Maxico Festivals</a>
+                <a href="#none">Barcelona Festivals</a>
+            </div>
         </div>
     </section>
     <footer>
         <div class="inner">
-            
+            <div class="footer-content">
+                <ul class="community">
+                    <li>Community</li>
+                    <li><a href="#none">Subscribe</a></li>
+                    <li><a href="#none">Give A Gift</a></li>
+                    <li><a href="#none">Customer Service FAQ</a></li>
+                    <li><a href="#none">Access Your Subscription</a></li>
+                </ul>
+                <ul class="network">
+                    <li>Network</li>
+                    <li><a href="#none">Privacy Policy</a></li>
+                    <li><a href="#none">Terms Of Service</a></li>
+                    <li><a href="#none">Advertise</a></li>
+                    <li><a href="#none">Jobs</a></li>
+                </ul>
+                <ul class="help">
+                    <li>Help Preserve This Project</li>
+                    <li>We may earn a commission if you purchase an item 
+                        featured on our site.</li>
+                    <li>Copyright ©  2020 CodingWorks. All rights reserved.</li>
+                </ul>
+            </div>
         </div>
     </footer>
 </div>
@@ -105,94 +179,3 @@
 
 
 </html>
-<script>
-
-    $(`.trigger`).click(function() {
-        $(this).toggleClass('active');
-        $(`.gnb, .sns`).toggleClass('active');
-
-    });
-
-
-// function solution(arr) {
-    
-//     let answer = arr;
-
-//     // for (let i = 0; i < arr.length; i++) {
-//     //     let idx = i;
-
-//     //     for (let j = i+1; j < arr.length; j++) {
-//     //         if(arr[idx] > arr[j]) idx = j;
-//     //     }
-
-//     //     [arr[i], arr[idx]] = [arr[idx], arr[i]];
-        
-//     // }
-
-//     // for (let i = 0; i < arr.length-1; i++) {
-//     //     for (let j = 0; j < arr.length-1; j++) {
-//     //         if(arr[j] > arr[j+1]) {
-//     //             [arr[j+1], arr[j]] = [arr[j], arr[j+1]];
-//     //         }
-//     //     }
-//     // }
-
-//     for (let i = 0; i < arr.length-1; i++) {
-//         for (let j = 0; j < arr.length-1; j++) {
-//             if(arr[j] > 0 && arr[j+1] < 0) {
-//                 [arr[j+1], arr[j]] = [arr[j], arr[j+1]];
-//             }
-//         }
-//     }
-   
-
-//     return answer;
-// }
-
-
-function solution(n,f) {
-    let answer;
-    let flag = 0;
-    let dy = Array.from(Array(n), ()=>Array(n).fill(0));
-    let ch = Array.from({length:n+1}, () => 0);
-    let p = Array.from({length:n}, () => 0);
-    let b = Array.from({length:n}, () => 0);
-
-    function combi(n, r) {
-        if(dy[n][r]>0) return dy[n][r];
-        if(n===r || r===0) return 1;
-        else return dy[n][r] = combi(n-1,r-1)+combi(n-1,r);
-    }
-
-    function DFS(L,sum) {
-        if(flag) return;
-        if(L === n && sum === f) {
-            answer = p.slice();
-            flag = 1;
-        }
-        else {
-            for (let i = 1; i <= n; i++) {
-                if(ch[i] === 0) {
-                    ch[i] = 1;
-                    p[L] = i;
-                    DFS(L+1, sum+(p[L] * b[L]));
-                    ch[i] = 0;
-                }              
-            }
-        }
-    }
-
-    for (let i = 0; i < n; i++) {
-        b[i] = combi(n-1, i);
-    }
-
-    
-    DFS(0,0)
-
-    return answer;
-}
-
-console.log(solution(4,16))
-    
-</script>
-
