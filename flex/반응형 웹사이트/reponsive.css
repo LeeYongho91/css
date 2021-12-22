@@ -1,0 +1,30 @@
+@media (max-width: 768px) {
+    /* ------------------------Header------------------------ */
+
+    header {
+        display: none;
+    }
+
+    /* ------------------------CSS--------------------------- */
+
+    .inner {
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    /* ------------------------About-------------------------- */
+
+    .about-content {
+        flex-direction: column;
+        padding: 50px 0;
+    }
+    .about-content div {
+        padding: 10px;
+    }
+
+    /* ------------------------About-------------------------- */
+
+    
+
+}

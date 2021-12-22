@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="../js/slick/slick.min.js"></script>
+    <script src="../js/jquery.scrollTo.min.js"></script>
     <link rel="stylesheet" href="../js/slick/slick.css">
     <link rel="stylesheet" href="../js/slick/slick-theme.css">
     <script src="./custom.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reponsive.css">
 </head>
 
 <body>
@@ -30,11 +32,11 @@
                 <a href="#none"><img src="../images/logo.png" alt=""></a>
             </div>
             <ul class="gnb">
-                <li><a href="#none">HOME</a></li>
-                <li><a href="#none">ABOUT</a></li>
-                <li><a href="#none">RANKING</a></li>
-                <li><a href="#none">TESTIMONIAL</a></li>
-                <li><a href="#none">BLOG</a></li>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#ranking">RANKING</a></li>
+                <li><a href="#testimonial">TESTIMONIAL</a></li>
+                <li><a href="#blog">BLOG</a></li>
             </ul>
         </nav>
     </header>
@@ -48,7 +50,7 @@
             </div>
         </div>
     </main>
-    <section class="about">
+    <section class="about" id="about">
         <div class="inner">
             <div class="about-content">
                 <div class="desc">
@@ -68,7 +70,7 @@
             </div>
         </div>
     </section>
-    <section class="ranking">
+    <section class="ranking" id="ranking">
         <div class="inner">
             <div class="ranking-content">
                 <h2>The World’s 25 Best Cities of 2020</h2>
@@ -121,7 +123,7 @@
             </div>
         </div>
     </section>
-    <section class="testimonial">
+    <section class="testimonial" id="testimonial">
         <div class="inner">
             <div class="testimonial-content">
                 <h2>what<b> our customers</b> are saying</h2>
@@ -186,15 +188,95 @@
             </div>
         </div>
     </section>
-    <section class="callaction">
+    <section class="callaction" >
         <div class="callaction-heading">
             <h2>The Most Simple & <b>Powerful Way</b> <br>to book <b>your trip</b></h2>
             <a href="#none">GET EARLY ACCESS</a>
         </div>
     </section>
-    <section class="blog">
+    <section class="blog" id="blog">
         <div class="inner">
-            
+            <div class="blog-content">
+                <div class="blog-header">
+                    <h6>feature article</h6>
+                    <h2>Can Americans Visit Mexico Right Now?</h2>
+                    <p>
+                        Technically, there’s a ban on nonessential travel across the border through September 21. Then how are people on vacation in Cabo and Cancun right now?
+                    </p>
+                    <a href="#none" class="btn-explore">Read More <img src="../images/icon-arrow.png"></a>
+                </div>
+                <hr class="divider">
+                <div class="post-content">
+                    <div class="recent-post-items">
+                        <h6>most recent</h6>
+                        <div class="post-item">
+                                <div class="post-image">
+                                    <img src="../images//most-recent-01.jpg" alt="">
+                                </div>
+                                <div class="post-desc">
+                                    <h3>world ocean travel</h3>
+                                    <p>
+                                        The ocean provides a vast seascape for travel. Beyond the cruise ship there are other, more intimate, more environmentally sustainable ways to engage with the ocean. 
+                                        <span>July 12, 2020</span>
+                                    </p>
+                            </div>
+                        </div>
+                        <hr class="divider">
+                        <div class="post-item">
+                            <div class="post-image">
+                                <img src="../images//most-recent-02.jpg" alt="">
+                            </div>
+                            <div class="post-desc">
+                                <h3>come to South Korea</h3>
+                                <p>
+                                    While only 60 years ago South Korea was considered a developing country, it’s now one of Asia’s economic and cultural leaders. Super-chic Seoul combines modernism with ancient history
+                                    <span>August 22, 2020</span>
+                                </p>
+                        </div>
+                    </div>
+                    <hr class="divider">
+                        <div class="post-item">
+                            <div class="post-image">
+                                <img src="../images//most-recent-03.jpg" alt="">
+                            </div>
+                            <div class="post-desc">
+                                <h3>Vietnam & Cambodia</h3>
+                                <p>
+                                    Start in Hanoi and end in Bangkok! With the Discovery tour Best of Vietnam & Cambodia, you have a 18 days tour package taking you through Hanoi, Vietnam and 10 other 
+                                    <span>June 30, 2020</span>
+                                </p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="shared-post-items">
+                        <h6>most shared</h6>
+                        <div class="post-item">
+                            <div class="post-image">
+                                <img src="../images//most-shared-01.jpg" alt="">
+                            </div>
+                            <div class="post-desc">
+                                <h3>Events in NYC</h3>
+                                <p>
+                                    New York City is the place to see and do everything 
+                                    <span>May 02, 2020</span>
+                                </p>
+                        </div>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-image">
+                            <img src="../images//most-shared-02.jpg" alt="">
+                        </div>
+                        <div class="post-desc">
+                            <h3>FESTIVALS</h3>
+                            <p>
+                                Experiencing a festival together with a group of like-minded 
+                                <span>Jan 18, 2020</span>
+                            </p>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <section class="festival">
@@ -233,6 +315,8 @@
         </div>
     </footer>
 </div>
+
+<a class="gototop" href="#"><i class="fa fa-angle-up"></i></a>
 
 <!-- 1280px ~ 1560px
 .inner --- width:1300px margin auto

@@ -1,4 +1,22 @@
 $(function() {
+
+  //Sliding jQuery
+  $('.gnb a').click(function(e){
+    $.scrollTo(this.hash || 0, 800);
+    e.preventDefault();
+});
+
+  // Header Scroll Change
+  $(window).scroll(function() {
+    if($(window).scrollTop() > 50) {
+      $('header, .gototop').addClass('active');
+    }
+    else {
+      $('header, .gototop').removeClass('active');
+    }
+  });
+
+    // Slick.js
     $('.myslider').slick({
         dots: true,
         infinite: false,

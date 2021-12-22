@@ -107,36 +107,43 @@
 // }
 
 
-function solution(s,e) {
+function solution(arr) {
     let answer = 0;
-    let ch = Array.from({length:10001}, ()=>0);
-    let dis = Array.from({length:10001}, ()=>0);
-    
-    let queue = [];
+    let n = arr.length;
+    let posX=[-1, -1, 0, 1, 1, 1, 0, -1];
+    let posY=[0, 1, 1, 1, 0, -1, -1, -1];
 
-    ch[s] = 1;
-    queue.push(s);
-    dis[s] = 0;
+    function DFS(x,y) {  
+        arr[x][y] = 0;
+        for (let k = 0; k < 4; k++) {
+        let dx = i + posX[k];
+        let dy = j + posY[k];
 
-    while(queue.length) {
-        let v = queue.shift();
+        if(dx>=0 && dx<n && dy>0 && dy<n && arr[dx][dy] === 1 ) {
+                DFS(dx,dy);
+        } 
+    }
+}
 
-        for(let x of [v-1, v+1, v+5]) {
-            if(x === e) {
-                return dis[v] + 1;
-            }
-            if(x>=0 && x<=10000 && ch[x] === 0) {
-                ch[x] = 1;
-                queue.push(x);
-                dis[x] = dis[v] + 1;
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            if(arr[i][j] === 1) {
+                answer++;
+                DFS(i,j);
             }
         }
     }
-
+            
+ 
     return answer;
 }
 
-console.log(solution(8,3));
+console.log(solution([[1, 1, 0, 0, 0, 1, 0], 
+                     [0, 1, 1, 0, 1, 1, 0],
+                     [0, 1, 0, 0, 0, 0, 0],
+                     [0, 0, 0, 1, 0, 1, 1],
+                     [1, 1, 0, 1, 1, 0, 0],
+                     [1, 0, 0, 0, 1, 0, 0],
+                     [1, 0, 1, 0, 1, 0, 0]]));
     
 </script>
-
