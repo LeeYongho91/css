@@ -97,6 +97,10 @@ nav {
     margin-right: 0;
 }
 
+.trigger {
+    display: none;
+}
+
 
 /* Header with active class */
 header.active {
@@ -373,18 +377,9 @@ header.active nav {
 .blog {
     padding: 100px 0;
 }
-.blog-content {
-  
-}
-.blog-content div {}
-.blog-header {
-
-}
 .post-content {
     display: flex;
     justify-content: space-between;
-}
-.post-content div {
 }
 .recent-post-items {
     flex: 2;
@@ -565,6 +560,11 @@ footer {
     color: #eee;
 }
 
+button.slick-arrow {
+    /* border: 1px solid #000; */
+    display: none !important;
+  }
+  
 
 
 
