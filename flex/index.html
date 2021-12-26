@@ -194,6 +194,29 @@
             <a href="#none">GET EARLY ACCESS</a>
         </div>
     </section>
+    <section class="blog" >
+        <div class="inner">
+            <div class="blog-content">
+                <div class="blog-header">
+                    <h6>feature article</h6>
+                    <h2>Can Americans Visit Mexico Right Now?</h2>
+                    <p>
+                        Technically, there’s a ban on nonessential travel across the border through September 21. Then how are people on vacation in Cabo and Cancun right now?
+                    </p>
+                    <a href="#none" class="btn-explore">Read More <img src="../images/icon-arrow.png"></a>
+                </div>
+                <hr class="divider">
+                <div class="post-content">
+                    <div class="recent-post-items">
+                        <div class="post-item"></div>
+                    </div>
+                    <div class="shared-post-items">
+                        <div class="post-item"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 </container>
@@ -248,43 +271,31 @@
 // }
 
 
-function solution(arr) {
-    let answer = 0;
-    let n = arr.length;
-    let posX=[-1, -1, 0, 1, 1, 1, 0, -1];
-    let posY=[0, 1, 1, 1, 0, -1, -1, -1];
+function solution(s,t) {
+    let answer = [];
+    let p = 0;
 
-    function DFS(x,y) {  
-        arr[x][y] = 0;
-        for (let k = 0; k < 4; k++) {
-        let dx = i + posX[k];
-        let dy = j + posY[k];
-
-        if(dx>=0 && dx<n && dy>0 && dy<n && arr[dx][dy] === 1 ) {
-                DFS(dx,dy);
-        } 
-    }
-}
-
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j < n; j++) {
-            if(arr[i][j] === 1) {
-                answer++;
-                DFS(i,j);
-            }
+    for(let x of s) {
+        if(x === t) {
+            p = 0;
+            answer.push(p);
+        }
+        else {
+            p++;
+            answer.push(p);
         }
     }
-            
- 
+
+    for (let i = s.length-1; i >= 0; i--) {
+        if(s[i] === t) p=0;
+        else {
+            p++;
+            answer[i] = Math.min(answer[i], p);
+        }
+    }
     return answer;
 }
 
-console.log(solution([[1, 1, 0, 0, 0, 1, 0], 
-                     [0, 1, 1, 0, 1, 1, 0],
-                     [0, 1, 0, 0, 0, 0, 0],
-                     [0, 0, 0, 1, 0, 1, 1],
-                     [1, 1, 0, 1, 1, 0, 0],
-                     [1, 0, 0, 0, 1, 0, 0],
-                     [1, 0, 1, 0, 1, 0, 0]]));
+console.log(solution('teachermode', 'e'));
     
 </script>
