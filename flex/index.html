@@ -208,10 +208,72 @@
                 <hr class="divider">
                 <div class="post-content">
                     <div class="recent-post-items">
-                        <div class="post-item"></div>
+                        <h6>most recent</h6>
+                        <div class="post-item">
+                            <div class="post-image">
+                                <img src="./images/most-recent-01.jpg" alt="">
+                            </div>
+                            <div class="post-desc">
+                                <h3>world ocean travel</h3>
+                                <p>
+                                    The ocean provides a vast seascape for travel. Beyond the cruise ship there are other, more intimate, more environmentally sustainable ways to engage with the ocean.
+                                    <span>July 12, 2020</span>
+                                </p>
+                            </div>
+                        </div>
+                       <hr class="divider">
+                        <div class="post-item">
+                            <div class="post-image">
+                                <img src="./images/most-recent-02.jpg" alt="">
+                            </div>
+                            <div class="post-desc">
+                                <h3>come to South Korea</h3>
+                                <p>
+                                    While only 60 years ago South Korea was considered a developing country, it’s now one of Asia’s economic and cultural leaders. Super-chic Seoul combines modernism with ancient history
+                                    <span>August 22, 2020</span>
+                                </p>
+                            </div>
+                        </div>
+                        <hr class="divider">
+                        <div class="post-item">
+                            <div class="post-image">
+                                <img src="./images/most-recent-03.jpg" alt="">
+                            </div>
+                            <div class="post-desc">
+                                <h3>Vietnam & Cambodia</h3>
+                                <p>
+                                    Start in Hanoi and end in Bangkok! With the Discovery tour Best of Vietnam & Cambodia, you have a 18 days tour package taking you through Hanoi, Vietnam and 10 other destinations.
+                                    <span>June 30, 2020</span>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                     <div class="shared-post-items">
-                        <div class="post-item"></div>
+                        <h6>most shared</h6>
+                        <div class="post-item">
+                            <div class="post-image">
+                                <img src="../images//most-shared-01.jpg" alt="">
+                            </div>
+                            <div class="post-desc">
+                                <h3>Events in NYC</h3>
+                                <p>
+                                    New York City is the place to see and do everything 
+                                    <span>May 02, 2020</span>
+                                </p>
+                        </div>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-image">
+                            <img src="../images//most-shared-02.jpg" alt="">
+                        </div>
+                        <div class="post-desc">
+                            <h3>FESTIVALS</h3>
+                            <p>
+                                Experiencing a festival together with a group of like-minded 
+                                <span>Jan 18, 2020</span>
+                            </p>
+                    </div>
+                </div>
                     </div>
                 </div>
             </div>
@@ -271,31 +333,27 @@
 // }
 
 
-function solution(s,t) {
-    let answer = [];
-    let p = 0;
-
-    for(let x of s) {
-        if(x === t) {
-            p = 0;
-            answer.push(p);
+function solution(m ,arr) {
+    let answer = Number.MIN_SAFE_INTEGER;
+    let cnt = 1;
+    arr.sort((a,b) => (a[0] + a[1]) - (b[0] + b[1]));
+    
+    for (let i = 0; i < arr.length; i++) {
+        let money = m - (arr[i][0] / 2 + arr[i][1]);
+        cnt = 1;
+        for (let j = 0; j < arr.length; j++) {
+            let price = arr[j][0] + arr[j][1];
+            if(i !== j && price > money) break;
+            if(i !== j && price <= money) {
+                money -= (price);
+                cnt++;
+            }
         }
-        else {
-            p++;
-            answer.push(p);
-        }
-    }
-
-    for (let i = s.length-1; i >= 0; i--) {
-        if(s[i] === t) p=0;
-        else {
-            p++;
-            answer[i] = Math.min(answer[i], p);
-        }
-    }
+        answer = Math.max(answer, cnt);   
+    }    
     return answer;
 }
 
-console.log(solution('teachermode', 'e'));
+console.log(solution(28, [[6,6], [2,2], [4,3], [4,5], [10,3]]));
     
 </script>
