@@ -9,16 +9,16 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./js/slick/slick.min.js"></script>
+    <script src="./js/jquery.scrollTo.min.js"></script>
     <link rel="stylesheet" href="./js/slick/slick.css">
     <link rel="stylesheet" href="./js/slick/slick-theme.css">
     <script src="./custom.js"></script>
     <link rel="stylesheet" href="style.css">
-
-
+    <link rel="stylesheet" href="reponsive.css">
 </head>
 
 <body>
-<container>
+<div class="container">
     <header>
         <div class="banner">
             <div class="lnb">
@@ -31,16 +31,19 @@
             <div class="logo">
                 <img src="./images/logo.png" alt="">
             </div>
-            <div class="gnb">
-                <ul>
-                    <li><a href="#none">HOME</a></li>
-                    <li><a href="#none">ABOUT</a></li>
-                    <li><a href="#none">RANKING</a></li>
-                    <li><a href="#none">TESTIMONIAL</a></li>
-                    <li><a href="#none">BLOG</a></li>
+                <ul class="gnb">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#ranking">RANKING</a></li>
+                    <li><a href="#testimonial">TESTIMONIAL</a></li>
+                    <li><a href="#blog">BLOG</a></li>
                 </ul>
-            </div>
         </nav>
+        <div class="trigger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
     <main class="intro">
         <div class="inner">
@@ -194,7 +197,7 @@
             <a href="#none">GET EARLY ACCESS</a>
         </div>
     </section>
-    <section class="blog" >
+    <section class="blog" id="blog" >
         <div class="inner">
             <div class="blog-content">
                 <div class="blog-header">
@@ -279,9 +282,43 @@
             </div>
         </div>
     </section>
-
-
+    <section class="festival" id="festival">
+        <div class="festival-heading">
+            <h3><span>SEE ALL FESTIVALS</span> for the Best Trip Place</h3>
+            <div class="btns">
+                <a href="#none">Maxico Festivals</a>
+                <a href="#none">Barcelona Festivals</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="inner">
+            <div class="footer-content">
+                <ul class="community">
+                    <li>Community</li>
+                    <li><a href="#none">Subscribe</a></li>
+                    <li><a href="#none">Give A Gift</a></li>
+                    <li><a href="#none">Customer Service FAQ</a></li>
+                    <li><a href="#none">Access Your Subscription</a></li>
+                </ul>
+                <ul class="network">
+                    <li>Network</li>
+                    <li><a href="#none">Privacy Policy</a></li>
+                    <li><a href="#none">Terms Of Service</a></li>
+                    <li><a href="#none">Advertise</a></li>
+                    <li><a href="#none">Jobs</a></li>
+                </ul>
+                <ul class="help">
+                    <li>Help Preserve This Project</li>
+                    <li>We may earn a commission if you purchase an item 
+                        featured on our site.</li>
+                    <li>Copyright ©  2020 CodingWorks. All rights reserved.</li>
+                </ul>
+        </div>
+        </div>
+    </footer>
 </container>
+<a class="gototop" href="#"><i class="fa fa-angle-up"></i></a>
 
 
 </body>
@@ -289,12 +326,6 @@
 
 </html>
 <script>
-
-    $(`.trigger`).click(function() {
-        $(this).toggleClass('active');
-        $(`.gnb, .sns`).toggleClass('active');
-
-    });
 
 
 // function solution(arr) {
@@ -333,27 +364,26 @@
 // }
 
 
-function solution(m ,arr) {
+function solution(n,arr) {
     let answer = Number.MIN_SAFE_INTEGER;
-    let cnt = 1;
-    arr.sort((a,b) => (a[0] + a[1]) - (b[0] + b[1]));
+    let sum = 0;
+    let lt = 0;
+
+    for (let i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+
+    for (let i = n; i < arr.length; i++) {
+        sum += (arr[i] - arr[i-n]);
+        answer = Math.max(answer, sum);
+    }
+
+
+ 
     
-    for (let i = 0; i < arr.length; i++) {
-        let money = m - (arr[i][0] / 2 + arr[i][1]);
-        cnt = 1;
-        for (let j = 0; j < arr.length; j++) {
-            let price = arr[j][0] + arr[j][1];
-            if(i !== j && price > money) break;
-            if(i !== j && price <= money) {
-                money -= (price);
-                cnt++;
-            }
-        }
-        answer = Math.max(answer, cnt);   
-    }    
     return answer;
 }
 
-console.log(solution(28, [[6,6], [2,2], [4,3], [4,5], [10,3]]));
+console.log(solution(3,[12,15,11,20,25,10,20,19,13,15]));
     
 </script>
